@@ -1,0 +1,955 @@
+
+/* ---- 1. PAGE SHELL ---- */
+.pd-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f7f7f9;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #1e1e2d;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---- 2. BREADCRUMB ---- */
+.pd-breadcrumb {
+    max-width: 1240px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 32px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    box-sizing: border-box;
+}
+
+.pd-crumb-link {
+    color: #6e6e80;
+    cursor: pointer;
+    transition: color 0.2s;
+    font-weight: 500;
+}
+
+.pd-crumb-link:hover {
+    color: #1e1e2d;
+}
+
+.pd-crumb-sep {
+    color: #c8c8d0;
+    user-select: none;
+}
+
+.pd-crumb-current {
+    color: #1e1e2d;
+    font-weight: 600;
+    max-width: 240px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ---- 3. SUCCESS BANNER ---- */
+.pd-success-banner {
+    max-width: 1240px;
+    margin: 16px auto 0;
+    padding: 14px 24px;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 10px;
+    color: #065f46;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: bannerSlide 0.4s ease-out;
+    box-sizing: border-box;
+    width: calc(100% - 64px);
+}
+
+.pd-success-banner span {
+    background: #065f46;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+@keyframes bannerSlide {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- 4. MAIN CONTAINER ---- */
+.pd-container {
+    max-width: 1240px;
+    margin: 24px auto 60px;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 36px;
+    width: 100%;
+    box-sizing: border-box;
+    animation: contentFade 0.5s ease-out;
+}
+
+@keyframes contentFade {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- 5. LEFT COLUMN ---- */
+.pd-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+}
+
+/* Image Section */
+.pd-image-section {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #e8e8ee;
+}
+
+.pd-main-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #e2e0ea 0%, #d5d3de 100%);
+    font-size: 96px;
+}
+
+.pd-listing-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 7px 16px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.pd-listing-badge.live {
+    background: #065f46;
+    color: white;
+}
+
+.pd-listing-badge.ended {
+    background: #1e1e2d;
+    color: #a0a0b0;
+}
+
+/* Info Grid */
+.pd-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.pd-info-item {
+    background: white;
+    border: 1px solid #ebebf0;
+    border-radius: 12px;
+    padding: 18px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: border-color 0.2s;
+}
+
+.pd-info-item:hover {
+    border-color: #d0d0da;
+}
+
+.pd-info-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.pd-info-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.pd-info-item strong {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1e1e2d;
+    line-height: 1.2;
+}
+
+.pd-info-item span {
+    font-size: 0.75rem;
+    color: #8e8ea0;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* Description */
+.pd-description-card,
+.pd-location-card {
+    background: white;
+    border: 1px solid #ebebf0;
+    border-radius: 14px;
+    padding: 28px;
+}
+
+.pd-description-card h3,
+.pd-location-card h3 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #1e1e2d;
+    margin: 0 0 16px 0;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #f0f0f5;
+}
+
+.pd-description-card p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: #555;
+    margin: 0;
+}
+
+/* Location */
+.pd-address-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.pd-pin {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    flex-shrink: 0;
+}
+
+.pd-address-row p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ---- 6. RIGHT COLUMN — BID PANEL ---- */
+.pd-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.pd-bid-panel {
+    background: white;
+    border: 1px solid #ebebf0;
+    border-radius: 16px;
+    padding: 32px 28px 28px;
+    position: sticky;
+    top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Panel Header */
+.pd-panel-header {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f5;
+}
+
+.pd-panel-header h1 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1e1e2d;
+    margin: 0 0 6px 0;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+}
+
+.pd-panel-address {
+    font-size: 0.85rem;
+    color: #8e8ea0;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* ---- 7. COUNTDOWN TIMER ---- */
+.pd-timer {
+    margin-bottom: 24px;
+}
+
+.pd-timer-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #8e8ea0;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 10px;
+}
+
+.pd-timer-units {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pd-timer-block {
+    background: #f7f7f9;
+    border: 1px solid #ebebf0;
+    border-radius: 10px;
+    padding: 10px 0;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+}
+
+.pd-timer-num {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1e1e2d;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.pd-timer-txt {
+    font-size: 0.6rem;
+    color: #8e8ea0;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    margin-top: 4px;
+}
+
+.pd-timer-colon {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #c8c8d0;
+    line-height: 1;
+    user-select: none;
+    margin-bottom: 12px;
+}
+
+/* ---- 8. BID DISPLAY ---- */
+.pd-bid-display {
+    background: #f7f7f9;
+    border: 1px solid #ebebf0;
+    border-radius: 12px;
+    padding: 22px 20px;
+    margin-bottom: 20px;
+}
+
+.pd-bid-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e4e4ec;
+}
+
+.pd-bid-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #8e8ea0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pd-bid-amount {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #1e1e2d;
+    letter-spacing: -0.5px;
+    font-variant-numeric: tabular-nums;
+}
+
+.pd-bid-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.pd-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pd-meta-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: #a0a0b0;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.pd-meta-value {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e1e2d;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---- 9. BID STATUS ---- */
+.pd-bid-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.pd-bid-status.winning {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.pd-bid-status.outbid {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.pd-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.pd-bid-status.winning .pd-status-dot {
+    background: #059669;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+}
+
+.pd-bid-status.outbid .pd-status-dot {
+    background: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15); }
+    50%      { box-shadow: 0 0 0 6px rgba(220, 38, 38, 0.08); }
+}
+
+/* ---- 10. BID FORM ---- */
+.pd-bid-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.pd-form-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.pd-input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 2px solid #e0e0e8;
+    border-radius: 10px;
+    background: white;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 12px;
+}
+
+.pd-input-wrapper:focus-within {
+    border-color: #1e1e2d;
+    box-shadow: 0 0 0 3px rgba(30, 30, 45, 0.06);
+}
+
+.pd-currency {
+    padding: 0 0 0 16px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #8e8ea0;
+    user-select: none;
+    line-height: 1;
+}
+
+.pd-bid-input {
+    flex: 1;
+    border: none !important;
+    outline: none !important;
+    padding: 16px 16px 16px 8px !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: #1e1e2d !important;
+    font-family: inherit !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    -moz-appearance: textfield;
+    min-width: 0;
+}
+
+.pd-bid-input::-webkit-inner-spin-button,
+.pd-bid-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.pd-bid-input::placeholder {
+    color: #c0c0cc;
+    font-weight: 400;
+}
+
+/* Quick Bid Buttons */
+.pd-quick-bids {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.pd-quick-btn {
+    flex: 1;
+    padding: 10px 8px;
+    background: #f7f7f9;
+    border: 1px solid #e8e8ef;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    text-align: center;
+}
+
+.pd-quick-btn:hover {
+    background: #1e1e2d;
+    color: white;
+    border-color: #1e1e2d;
+}
+
+/* Submit Bid */
+.pd-submit-bid {
+    width: 100%;
+    padding: 16px;
+    background: #1e1e2d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+    margin-bottom: 12px;
+}
+
+.pd-submit-bid:hover {
+    background: #2d2d42;
+    box-shadow: 0 4px 20px rgba(30, 30, 45, 0.2);
+    transform: translateY(-1px);
+}
+
+.pd-submit-bid:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(30, 30, 45, 0.15);
+}
+
+/* Disclaimer */
+.pd-bid-disclaimer {
+    font-size: 0.72rem;
+    color: #a0a0b0;
+    line-height: 1.5;
+    margin: 0;
+    text-align: center;
+}
+
+/* ---- 11. ENDED & UNAVAILABLE ---- */
+.pd-ended-box {
+    background: #f7f7f9;
+    border: 1px solid #ebebf0;
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: center;
+    margin-top: 4px;
+}
+
+.pd-ended-box h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e1e2d;
+    margin: 0 0 8px 0;
+}
+
+.pd-ended-box p {
+    font-size: 0.85rem;
+    color: #6e6e80;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.pd-unavailable {
+    text-align: center;
+    padding: 32px 20px;
+    background: #f7f7f9;
+    border: 1px dashed #d8d8e2;
+    border-radius: 12px;
+    margin-top: 4px;
+}
+
+.pd-unavailable span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.pd-unavailable p {
+    font-size: 0.85rem;
+    color: #8e8ea0;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* ---- 12. TRUST INDICATORS ---- */
+.pd-trust {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #f0f0f5;
+    flex-wrap: wrap;
+}
+
+.pd-trust-item {
+    font-size: 0.72rem;
+    color: #8e8ea0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.pd-trust-item span {
+    font-size: 0.8rem;
+}
+
+/* ---- 13. BACK BUTTON ---- */
+.pd-go-back {
+    background: transparent;
+    border: 1px solid #e0e0e8;
+    color: #6e6e80;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    text-align: center;
+}
+
+.pd-go-back:hover {
+    background: white;
+    color: #1e1e2d;
+    border-color: #c8c8d0;
+}
+
+/* ---- 14. LOADING STATE ---- */
+.pd-loading {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 80px 24px;
+}
+
+.pd-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid #e8e8ef;
+    border-top-color: #1e1e2d;
+    border-radius: 50%;
+    animation: pdSpin 0.7s linear infinite;
+}
+
+@keyframes pdSpin {
+    to { transform: rotate(360deg); }
+}
+
+.pd-loading p {
+    font-size: 0.9rem;
+    color: #8e8ea0;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* ---- 15. ERROR STATE ---- */
+.pd-error {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+    text-align: center;
+}
+
+.pd-error-icon {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.pd-error h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1e1e2d;
+    margin: 0 0 8px 0;
+}
+
+.pd-error p {
+    font-size: 0.92rem;
+    color: #8e8ea0;
+    margin: 0 0 24px 0;
+}
+
+.pd-back-btn {
+    background: #1e1e2d;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: inherit;
+}
+
+.pd-back-btn:hover {
+    background: #2d2d42;
+    box-shadow: 0 4px 16px rgba(30, 30, 45, 0.2);
+}
+
+/* ---- 16. RESPONSIVE ---- */
+@media (max-width: 1024px) {
+    .pd-container {
+        grid-template-columns: 1fr 380px;
+        gap: 28px;
+        padding: 0 24px;
+    }
+}
+
+@media (max-width: 860px) {
+    .pd-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+        margin-top: 16px;
+    }
+
+    .pd-bid-panel {
+        position: static;
+        order: -1;
+    }
+
+    .pd-info-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .pd-breadcrumb {
+        padding: 16px 20px 0;
+    }
+
+    .pd-success-banner {
+        margin: 12px 20px 0;
+        width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 600px) {
+    .pd-container {
+        padding: 0 16px;
+        margin-bottom: 40px;
+    }
+
+    .pd-bid-panel {
+        padding: 24px 20px 20px;
+        border-radius: 14px;
+    }
+
+    .pd-panel-header h1 {
+        font-size: 1.15rem;
+    }
+
+    .pd-bid-amount {
+        font-size: 1.45rem;
+    }
+
+    .pd-timer-num {
+        font-size: 1.15rem;
+    }
+
+    .pd-info-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 8px;
+    }
+
+    .pd-info-item {
+        padding: 14px 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .pd-main-image {
+        aspect-ratio: 16 / 9;
+        font-size: 64px;
+    }
+
+    .pd-quick-bids {
+        gap: 6px;
+    }
+
+    .pd-quick-btn {
+        padding: 8px 6px;
+        font-size: 0.72rem;
+    }
+
+    .pd-description-card,
+    .pd-location-card {
+        padding: 22px 20px;
+    }
+
+    .pd-breadcrumb {
+        padding: 14px 16px 0;
+        font-size: 0.76rem;
+    }
+
+    .pd-trust {
+        gap: 14px;
+    }
+
+    .pd-bid-input {
+        font-size: 16px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .pd-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pd-info-item {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .pd-bid-meta {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .pd-timer-block {
+        padding: 8px 0;
+    }
+
+    .pd-timer-num {
+        font-size: 1rem;
+    }
+}
+
+/* ---- 17. FOCUS & ACCESSIBILITY ---- */
+.pd-submit-bid:focus-visible,
+.pd-bid-input:focus-visible,
+.pd-quick-btn:focus-visible,
+.pd-go-back:focus-visible,
+.pd-back-btn:focus-visible {
+    outline: 2px solid #1e1e2d;
+    outline-offset: 2px;
+}
+
+/* ---- 18. PRINT ---- */
+@media print {
+    .pd-bid-form,
+    .pd-submit-bid,
+    .pd-quick-bids,
+    .pd-go-back,
+    .pd-trust,
+    .pd-breadcrumb {
+        display: none !important;
+    }
+
+    .pd-container {
+        grid-template-columns: 1fr;
+    }
+
+    .pd-bid-panel {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+
+
+    /* ---- WATCHLIST BUTTON ---- */
+    .pd-watchlist-btn {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(4px);
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.25s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+    }
+
+    .pd-watchlist-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    .pd-watchlist-btn:active {
+        transform: scale(0.95);
+    }
+
+    .pd-watchlist-btn.active {
+        background: #fef2f2;
+    }
+
+    .pd-watchlist-btn:disabled {
+        opacity: 0.6;
+        cursor: wait;
+    }
+}

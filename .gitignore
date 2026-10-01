@@ -1,0 +1,12 @@
+# Frontend
+auction-frontend/node_modules/
+auction-frontend/build/
+
+# Backend
+auction-backend/target/
+auction-backend/.idea/
+auction-backend/*.log
+
+# General
+.idea/
+.DS_Store

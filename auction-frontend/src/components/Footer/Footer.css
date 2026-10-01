@@ -1,0 +1,51 @@
+/* Main footer container */
+.main-footer {
+    background: #333; /* Dark background as requested */
+    color: #fff; /* White text for contrast */
+    padding: 2rem 5%;
+    margin-top: auto; /* Required for the sticky footer effect */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Centered content wrapper */
+.footer-content {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Copyright text styling */
+.footer-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Links row below the copyright */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #bbb; /* Subtle grey for links */
+}
+
+/* Hover effect for better user experience */
+.footer-links span {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer-links span:hover {
+    color: #fff; /* Highlights white on hover */
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 600px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

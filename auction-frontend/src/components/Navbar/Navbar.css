@@ -1,0 +1,119 @@
+/* Hamburger Button */
+.hamburger {
+    position: fixed;
+    top: 20px;
+    left: 20px; /* Moved to left */
+    z-index: 1000;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.line {
+    width: 30px;
+    height: 4px;
+    background-color: #1e1e2d;
+    transition: 0.3s;
+}
+
+/* Sidebar Layout */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -350px; /* Hide off the left side */
+    width: 300px;
+    height: 100vh;
+    background: white;
+    z-index: 2001;
+    transition: 0.3s ease-in-out;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.08); /* Shadow casts to the right */
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ebebf0; /* Border moved to the right */
+}
+
+.sidebar.active {
+    left: 0; /* Slide in to the left edge */
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px; /* Moved to right side of the sidebar */
+    font-size: 2.5rem;
+    color: #8e8ea0;
+    cursor: pointer;
+    line-height: 1;
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    color: #1e1e2d;
+    transform: scale(1.1);
+}
+
+.sidebar-header {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #1e1e2d;
+}
+
+.sidebar-header span {
+    color: #1e1e2d;
+    font-weight: 700;
+}
+
+/* Links */
+.sidebar-links {
+    list-style: none;
+    margin-top: 30px;
+    padding: 0;
+}
+
+.sidebar-links li {
+    padding: 0;
+    border-bottom: 1px solid #f0f0f5;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-links li:not(.logout-item-row):hover {
+    background-color: #f7f7f9;
+}
+
+.sidebar-links li.logout-item-row:hover {
+    background-color: #fef2f2;
+}
+
+.sidebar-links a,
+.logout-item {
+    text-decoration: none;
+    color: #555;
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: block;
+    padding: 18px 25px;
+    width: 100%;
+    transition: color 0.2s;
+}
+
+.sidebar-links li:hover a {
+    color: #1e1e2d;
+}
+
+.sidebar-links li.logout-item-row .logout-item {
+    color: #dc2626;
+    font-weight: 700;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 10, 30, 0.4);
+    z-index: 2000;
+}
